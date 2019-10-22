@@ -51,6 +51,10 @@ implements GraphInterface
 		return successorsList;
 	}
 	
+	public MBox getMbox(int x, int y) {
+		return (MBox) labyrinthe[x][y];
+				}
+	
 	public int getWeight(VertexInterface src,VertexInterface dst) {
 		ArrayList<VertexInterface> successorsList =  getSuccessors(src);
 		
@@ -65,6 +69,8 @@ implements GraphInterface
 	
 	public final void initFromTextFile(String fileName) {
 		
+		
+		//BufferedReader mazeFile = null;
 		try {
 			FileReader a = new FileReader(fileName);
 			BufferedReader b = new BufferedReader(a);
