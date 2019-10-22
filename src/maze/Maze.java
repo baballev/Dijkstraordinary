@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import dijkstra.GraphInterface;
 import dijkstra.VertexInterface;
+import tp04.MazeReadingException;
 
 public class Maze 
 implements GraphInterface
@@ -51,6 +52,10 @@ implements GraphInterface
 		return successorsList;
 	}
 	
+	public MBox getMbox(int x, int y) {
+		return (MBox) labyrinthe[x][y];
+				}
+	
 	public int getWeight(VertexInterface src,VertexInterface dst) {
 		ArrayList<VertexInterface> successorsList =  getSuccessors(src);
 		
@@ -64,49 +69,46 @@ implements GraphInterface
 	
 	
 	public final void initFromTextFile(String fileName) {
-		
+		int i = 1;
+		BufferedReader mazeFile = null;
 		try {
-			FileReader a = new FileReader(fileName);
-			BufferedReader b = new BufferedReader(a);
-			
-			int intCurrentCara;
-			int nbCara = 0;
-		      while ((intCurrentCara = b.read() ) != -1) {
-		    	  if (intCurrentCara == 87) {
-		    		  System.out.println("W");
-		    		  nbCara+=1;
-		    		  int ligne = (nbCara-1)/10;
-		    		  int colonne = (nbCara-1)%10;
-		    		  labyrinthe[ligne][colonne]= new WBox(labyrinthe,ligne,colonne);
-		    	  }
-		    	  if (intCurrentCara == 69) {
-		    		  System.out.println("E");
-		    		  nbCara+=1;
-		    		  int ligne = (nbCara-1)/10;
-		    		  int colonne = (nbCara-1)%10;
-		    		  labyrinthe[ligne][colonne]= new EBox(labyrinthe,ligne,colonne);
-		    	  }
-		    	  if (intCurrentCara == 68) {
-		    		  System.out.println("D");
-		    		  nbCara+=1;
-		    		  int ligne = (nbCara-1)/10;
-		    		  int colonne = (nbCara-1)%10;
-		    		  labyrinthe[ligne][colonne]= new DBox(labyrinthe,ligne,colonne);
-		    	  }
-		    	  if (intCurrentCara == 65) {
-		    		  System.out.println("A");
-		    		  nbCara+=1;
-		    		  int ligne = (nbCara-1)/10;
-		    		  int colonne = (nbCara-1)%10;
-		    		  labyrinthe[ligne][colonne]= new ABox(labyrinthe,ligne,colonne);
-		    	  }
-		      }
-		      
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			mazeFile = new BufferedReader(new FileReader(fileName));
+			String line = mazeFile.readLine(); 							 // Init with the first line
+			while (line != null) {										 // When line = null, we are at the end of the file so stop reading.
+				if (line.length() != width) throw new MazeReadingException(fileName, i, "Error: The file " + fileName + "'s lines do not correpond to maze width.");
+				for (int k = 0; k < width; k++) {
+					char c = line.charAt(k);
+					MBox newBox;
+					switch(c){
+						case 'A':
+							newBox = new ABox(k, i);
+							break;
+						case 'W':
+							newBox = new WBox(k, i);
+							break;
+						case 'E':
+							newBox = new EBox(k, i);
+							break;
+						case 'D':
+							newBox = new DBox(k, i);
+							break;
+						default:
+							throw new MazeReadingException(fileName, i, "Error: Unexpected character in " + fileName + " at line " + i);
+					}		
+					this.boxes.add(newBox);				
+					}
+				line = mazeFile.readLine();
+				i++;
+			}
+		} catch(MazeReadingException e) {
 			e.printStackTrace();
 		}
-		
-
+		catch(Exception e){	
+			e.printStackTrace();
+		} finally {
+			try {
+				mazeFile.close();
+			} catch(Exception e) {}
+		}
 	}
 }
