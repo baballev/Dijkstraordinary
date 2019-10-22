@@ -4,11 +4,9 @@ public class WBox
 extends MBox 
 {
 	private String label;
-	private MBox[][] labyrinthe;
 	
-	public WBox(MBox[][] labyrinthe0, int x0, int y0) {
-		super(x0,y0);
-		labyrinthe=labyrinthe0;
+	public WBox(Maze labyrinthe0, int x0, int y0) {
+		super(labyrinthe0, x0,y0);
 		label="W";
 	}
 	

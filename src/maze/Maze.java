@@ -85,21 +85,21 @@ implements GraphInterface
 					MBox newBox;
 					switch(c){
 						case 'A':
-							newBox = new ABox(k, i);
+							newBox = new ABox(this, k, i);
 							break;
 						case 'W':
-							newBox = new WBox(k, i);
+							newBox = new WBox(this, k, i);
 							break;
 						case 'E':
-							newBox = new EBox(k, i);
+							newBox = new EBox(this, k, i);
 							break;
 						case 'D':
-							newBox = new DBox(k, i);
+							newBox = new DBox(this, k, i);
 							break;
 						default:
 							throw new MazeReadingException(fileName, i, "Error: Unexpected character in " + fileName + " at line " + i);
 					}		
-					this.boxes.add(newBox);				
+					this.labyrinthe[i][k] = newBox;				
 					}
 				line = mazeFile.readLine();
 				i++;
