@@ -2,7 +2,6 @@ package dijkstra;
 
 public class Dijkstra {
 	
-
 	private static PreviousInterface dijkstra(GraphInterface g,
 VertexInterface r)
 	
@@ -41,23 +40,13 @@ VertexInterface r)
 			for (VertexInterface y : g.getAllVertices() ) {
 				if (! A.contains(y) ){
 					
-					int min = ;
-					vertexInterface newpivot = ;
-					
+					min = pi.getValue(y);
+					newpivot = y;	
 				}
 			}
-			
-			
+			pivot = newpivot;
+			A.add(pivot);	
 		}
-		/****/
-		
-		
-		
-		
-		
-		
-		
-		
 		return previous;
 	}
 

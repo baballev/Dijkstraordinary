@@ -1,5 +1,7 @@
 package tp04;
 
+import dijkstra.Previous;
+import dijkstra.PreviousInterface;
 import maze.Maze;
 
 public class MainTest {
@@ -10,5 +12,6 @@ public class MainTest {
 		
 		Maze labyrinthe = new Maze();
 		labyrinthe.initFromTextFile(fileName);
+		
 		}
 }
