@@ -15,9 +15,13 @@ implements GraphInterface
 
 {
 	private MBox labyrinthe[][];
+	private int width;
+	private int height;
 	
-	public Maze() {
-		labyrinthe = new MBox[10][10];
+	public Maze(int width, int height) {
+		this.width = width;
+		this.height = height;
+		labyrinthe = new MBox[height][width];
 	}
 	
 	
@@ -53,7 +57,7 @@ implements GraphInterface
 	}
 	
 	public MBox getMbox(int x, int y) {
-		return labyrinthe[x][y];
+		return labyrinthe[y][x];
 				}
 	
 	public int getWeight(VertexInterface src,VertexInterface dst) {
