@@ -1,10 +1,11 @@
-package tp04;
+package dijkstra;
 
 public interface PreviousInterface {
-	/** père de vertex recois value **/
+	
+	/** pï¿½re de vertex recois value **/
 	public void setValue(VertexInterface vertex, VertexInterface value);
 	
-	/** donne la valeur de père de vertex **/
+	/** donne la valeur de pï¿½re de vertex **/
 	public VertexInterface getValue(VertexInterface vertex);
 
 }
