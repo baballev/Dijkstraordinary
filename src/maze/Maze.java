@@ -53,7 +53,7 @@ implements GraphInterface
 	}
 	
 	public MBox getMbox(int x, int y) {
-		return (MBox) labyrinthe[x][y];
+		return labyrinthe[x][y];
 				}
 	
 	public int getWeight(VertexInterface src,VertexInterface dst) {
