@@ -73,7 +73,7 @@ implements GraphInterface
 	
 	
 	public final void initFromTextFile(String fileName) {
-		int i = 1;
+		int i = 0;
 		BufferedReader mazeFile = null;
 		try {
 			mazeFile = new BufferedReader(new FileReader(fileName));
