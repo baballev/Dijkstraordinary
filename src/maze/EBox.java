@@ -4,11 +4,9 @@ public class EBox
 extends MBox 
 {
 	private String label;
-	private MBox[][] labyrinthe;
 	
-	public EBox(MBox[][] labyrinthe0, int x0, int y0) {
-		super(x0,y0);
-		labyrinthe=labyrinthe0;
+	public EBox(Maze labyrinthe0, int x0, int y0) {
+		super(labyrinthe0, x0,y0);
 		label="E";
 	}
 	

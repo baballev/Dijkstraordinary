@@ -15,9 +15,13 @@ implements GraphInterface
 
 {
 	private MBox labyrinthe[][];
+	private int width;
+	private int height;
 	
-	public Maze() {
-		labyrinthe = new MBox[10][10];
+	public Maze(int width, int height) {
+		this.width = width;
+		this.height = height;
+		labyrinthe = new MBox[height][width];
 	}
 	
 	
@@ -53,7 +57,7 @@ implements GraphInterface
 	}
 	
 	public MBox getMbox(int x, int y) {
-		return (MBox) labyrinthe[x][y];
+		return labyrinthe[y][x];
 				}
 	
 	public int getWeight(VertexInterface src,VertexInterface dst) {
@@ -68,8 +72,8 @@ implements GraphInterface
 	}
 	
 	
-	public final void initFromTextFile(String fileName) {
-		int i = 1;
+	public final void initFromTextFile(String fileName) {  				// DONE
+		int i = 0;
 		BufferedReader mazeFile = null;
 		try {
 			mazeFile = new BufferedReader(new FileReader(fileName));
@@ -81,24 +85,25 @@ implements GraphInterface
 					MBox newBox;
 					switch(c){
 						case 'A':
-							newBox = new ABox(k, i);
+							newBox = new ABox(this, k, i);
 							break;
 						case 'W':
-							newBox = new WBox(k, i);
+							newBox = new WBox(this, k, i);
 							break;
 						case 'E':
-							newBox = new EBox(k, i);
+							newBox = new EBox(this, k, i);
 							break;
 						case 'D':
-							newBox = new DBox(k, i);
+							newBox = new DBox(this, k, i);
 							break;
 						default:
 							throw new MazeReadingException(fileName, i, "Error: Unexpected character in " + fileName + " at line " + i);
 					}		
-					this.boxes.add(newBox);				
+					this.labyrinthe[i][k] = newBox;				
 					}
 				line = mazeFile.readLine();
 				i++;
+				if (i>=10) throw new MazeReadingException(fileName, i, "Error: The number of lines in the file " + fileName + "does not match the maze's height.");
 			}
 		} catch(MazeReadingException e) {
 			e.printStackTrace();
