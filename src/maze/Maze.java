@@ -72,7 +72,7 @@ implements GraphInterface
 	}
 	
 	
-	public final void initFromTextFile(String fileName) {
+	public final void initFromTextFile(String fileName) {  				// DONE
 		int i = 0;
 		BufferedReader mazeFile = null;
 		try {
@@ -103,6 +103,7 @@ implements GraphInterface
 					}
 				line = mazeFile.readLine();
 				i++;
+				if (i>=10) throw new MazeReadingException(fileName, i, "Error: The number of lines in the file " + fileName + "does not match the maze's height.");
 			}
 		} catch(MazeReadingException e) {
 			e.printStackTrace();
