@@ -1,8 +1,10 @@
 package maze;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -102,7 +104,7 @@ public class Maze implements GraphInterface
 				}
 				line = mazeFile.readLine();
 				i++;
-				if (i >= 10)
+				if (i > height)
 					throw new MazeReadingException(fileName, i,
 							"Error: The number of lines in the file " + fileName + "does not match the maze's height.");
 			}
@@ -114,6 +116,33 @@ public class Maze implements GraphInterface
 			try {
 				mazeFile.close();
 			} catch (Exception e) {
+			}
+		}
+	}
+	
+	public final void saveFromTextFile(String fileName) { // DONE
+		
+		BufferedWriter writer = null;
+		try{
+			writer = new BufferedWriter(new FileWriter(fileName));
+		
+		
+			for (MBox[] X : labyrinthe) {
+				for (MBox x : X) {
+					String str;
+					str = x.getLabel();
+					char c = str.charAt(0);
+					writer.write(c);
+				}
+				writer.write("\n");
+			}
+		}
+		catch(Exception e){}
+		finally {
+			try {
+				writer.close();
+				} 
+			catch (Exception e) {
 			}
 		}
 	}

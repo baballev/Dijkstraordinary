@@ -10,8 +10,10 @@ public class MainTest {
 		// TODO Auto-generated method stub
 		String fileName = "data/labyrinthe.txt";
 
-		Maze labyrinthe = new Maze(10, 10);
+		Maze labyrinthe = new Maze(10,10);
 		labyrinthe.initFromTextFile(fileName);
+		
+		labyrinthe.saveFromTextFile("data/labyrinthe2.txt");
 
 	}
 }
