@@ -6,7 +6,16 @@ public class MainWindow extends JFrame {
 
 	private final MenuBar menuBar;
 	private final WindowPanel windowPanel;
+	private MazeModel mazeModel = new MazeModel();
 	
+	public MazeModel getMazeModel() {
+		return mazeModel;
+	}
+
+	public void setMazeModel(MazeModel mazeModel) {
+		this.mazeModel = mazeModel;
+	}
+
 	public MainWindow() {
 		super("Labyrinthe");
 		
