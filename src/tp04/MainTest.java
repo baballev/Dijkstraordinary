@@ -3,7 +3,7 @@ package tp04;
 import dijkstra.Previous;
 import dijkstra.PreviousInterface;
 import maze.Maze;
-
+import gui.*;
 public class MainTest {
 
 	public static void main(String[] args) {
@@ -14,6 +14,7 @@ public class MainTest {
 		labyrinthe.initFromTextFile(fileName);
 		
 		labyrinthe.saveFromTextFile("data/labyrinthe2.txt");
-
+		
+		new MainWindow();
 	}
 }
