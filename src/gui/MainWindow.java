@@ -5,6 +5,7 @@ import javax.swing.*;
 public class MainWindow extends JFrame {
 
 	private final MenuBar menuBar;
+	private final WindowPanel windowPanel;
 	
 	public MainWindow() {
 		super("Labyrinthe");
@@ -12,10 +13,13 @@ public class MainWindow extends JFrame {
 		menuBar = new MenuBar(this);
 		setJMenuBar(menuBar);
 		
+		windowPanel = new WindowPanel(this);
+		this.setContentPane(windowPanel);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		pack();
-		setVisible(true);
+		this.pack();
+		this.setVisible(true);
 		
 	}
 }
