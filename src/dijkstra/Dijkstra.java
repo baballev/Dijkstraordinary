@@ -1,27 +1,33 @@
 package dijkstra;
 
+import java.util.ArrayList;
+
 public class Dijkstra {
 
-	private static PreviousInterface dijkstra(GraphInterface g, VertexInterface r)
+	public static PreviousInterface dijkstra(GraphInterface g, VertexInterface r)
 
 	{
-		int n = 100;
+		ArrayList<VertexInterface> vertices = g.getAllVertices();
+		int n = vertices.size();
+		
 		ASet A = new ASet();
 		Pi pi = new Pi();
 		Previous previous = new Previous();
-
+		
 		A.add(r);
 		VertexInterface pivot = r;
+		pi.setValue(r, 0);
+		
 
-		for (VertexInterface x : g.getAllVertices()) {
+		for (VertexInterface x : vertices) {
 			pi.setValue(x, Integer.MAX_VALUE);
 		}
-		pi.setValue(r, 0);
+		
 
 		for (int j = 1; j <= n - 1; j++) {
 
-			for (VertexInterface y : g.getAllVertices()) {
-				if ((g.getSuccessors(pivot)).contains(y) && !A.contains(y)) {
+			for (VertexInterface y : vertices) {
+				if ( (g.getSuccessors(pivot)).contains(y) && !(A.contains(y)) ) {
 
 					if (pi.getValue(pivot) + 1 < pi.getValue(y)) {
 						pi.setValue(y, pi.getValue(pivot) + 1);
@@ -34,19 +40,19 @@ public class Dijkstra {
 			// si oui, le defini comme le min
 
 			int min = Integer.MAX_VALUE;
-			VertexInterface newpivot = null;
+			VertexInterface npivot = null;
 
-			for (VertexInterface y : g.getAllVertices()) {
-				if (!A.contains(y)) {
-
-					min = pi.getValue(y);
-					newpivot = y;
+			for (VertexInterface y : vertices) {
+				if ( !(A.contains(y)) ) {
+					if (pi.getValue(y) <= min) {
+						min = pi.getValue(y);
+						npivot = y;
+					}
 				}
 			}
-			pivot = newpivot;
+			pivot = npivot;
 			A.add(pivot);
 		}
 		return previous;
 	}
-
 }

@@ -25,5 +25,9 @@ public class MBox implements VertexInterface {
 	public String getLabel() {
 		return "";
 	}
+	
+	public void setLabel() {
+	}
+	
 
 }

@@ -6,6 +6,10 @@ import java.util.Set;
 public class ASet implements ASetInterface {
 
 	private HashSet<VertexInterface> A;
+	
+	public ASet() {
+		A = new HashSet();
+	}
 
 	public void add(VertexInterface vertex) {
 		A.add(vertex);

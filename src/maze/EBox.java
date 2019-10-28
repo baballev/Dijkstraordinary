@@ -12,5 +12,8 @@ public class EBox extends MBox {
 	public String getLabel() {
 		return label;
 	}
-
+	@Override
+	public void setLabel() {
+		label=".";
+	}
 }

@@ -12,5 +12,9 @@ public class ABox extends MBox {
 	public String getLabel() {
 		return label;
 	}
+	@Override
+	public void setLabel() {
+		label=".";
+	}
 
 }

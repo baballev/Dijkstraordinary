@@ -45,8 +45,8 @@ public class Maze implements GraphInterface
 
 		for (int i = -1; i <= 1; i++) {
 			for (int j = -1; j <= 1; j++) {
-				if (Math.abs(i - j) == 1) {
-					MBox v = labyrinthe[x + i][y + j];
+				if (Math.abs(i - j) == 1 && y+i >= 0 && y+i <= 9 && x+j >= 0 && x+j <= 9) {
+					MBox v = labyrinthe[y + i][x + j];
 					if (v.getLabel().compareTo("W") != 0) {
 						successorsList.add(v);
 					}
@@ -69,6 +69,37 @@ public class Maze implements GraphInterface
 			return Integer.MAX_VALUE;
 		}
 	}
+
+	public VertexInterface getStart() {
+		int i = 0 ;
+		int j = 0 ;
+		int count = 0;
+		MBox v = labyrinthe[i][j];
+		String str = v.getLabel();
+		while ( str != "D") {
+			count += 1;
+			i= count / width;
+			j= count % width;			 
+			v = labyrinthe[i][j];
+			str = v.getLabel();
+		}
+		return (v);
+	}
+	public VertexInterface getEnd() {
+		int i = 0 ;
+		int j = 0 ;
+		int count = 0;
+		MBox v = labyrinthe[i][j];
+		String str = v.getLabel();
+		while ( str != "A") {
+			count += 1;
+			i= count / width;
+			j= count % width;			 
+			v = labyrinthe[i][j];
+			str = v.getLabel();
+		}
+		return (v);
+	}	
 
 	public final void initFromTextFile(String fileName) { // DONE
 		int i = 0;
@@ -104,9 +135,9 @@ public class Maze implements GraphInterface
 				}
 				line = mazeFile.readLine();
 				i++;
-				if (i > height)
+				if (i >= height)
 					throw new MazeReadingException(fileName, i,
-							"Error: The number of lines in the file " + fileName + "does not match the maze's height.");
+							"Error: The number of lines in the file " + fileName + " does not match the maze's height.");
 			}
 		} catch (MazeReadingException e) {
 			e.printStackTrace();
