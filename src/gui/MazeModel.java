@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import maze.*;
 
-public final class MazeModel {
+public final class MazeModel { 
 	
 	private Maze maze;
 	
