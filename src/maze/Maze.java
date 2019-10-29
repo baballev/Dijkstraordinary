@@ -63,6 +63,10 @@ public class Maze implements GraphInterface
 	public int getHeight() {
 		return height;
 	}
+	
+	public MBox[][] getLabyrinthe() {
+		return this.labyrinthe;
+	}
 
 	public MBox getMbox(int x, int y) {
 		return labyrinthe[y][x];
@@ -78,7 +82,7 @@ public class Maze implements GraphInterface
 		}
 	}
 
-	public final void initFromTextFile(String fileName) { // DONE
+	public final void initFromTextFile(String fileName) { // TODO: Manage exceptions on mutltiple DBox or ABox.
 		int i = 0;
 		BufferedReader mazeFile = null;
 		try {
@@ -128,7 +132,7 @@ public class Maze implements GraphInterface
 		}
 	}
 	
-	public final void saveFromTextFile(String fileName) { // DONE
+	public final void saveFromTextFile(String fileName) { // TODO: Manage exceptions on multiple DBox or ABox.
 		
 		BufferedWriter writer = null;
 		try{
