@@ -22,7 +22,6 @@ public final class MazeModel extends Observable {
 		this.maze = maze;
 	}
 
-	// addObserver(Observer observer);
 	//  setChanged(); to call when the observable is modified
 	// notifyObservers();  or notifyObservers(Object parameter); after
 	

@@ -56,6 +56,14 @@ public class Maze implements GraphInterface
 		return successorsList;
 	}
 
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
 	public MBox getMbox(int x, int y) {
 		return labyrinthe[y][x];
 	}

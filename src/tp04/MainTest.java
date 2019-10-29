@@ -4,6 +4,8 @@ import dijkstra.Previous;
 import dijkstra.PreviousInterface;
 import maze.Maze;
 import gui.*;
+import model.*;
+
 public class MainTest {
 
 	public static void main(String[] args) {
@@ -15,7 +17,9 @@ public class MainTest {
 		
 		labyrinthe.saveFromTextFile("data/labyrinthe2.txt");
 		
-		new MainWindow(); // Init window.
+		MainWindow window = new MainWindow(); 		// Init window.
+		window.getMazeModel().setMaze(labyrinthe);	// Set the maze value in the model to the one created above from text file.
+		
 		
 	}
 }
