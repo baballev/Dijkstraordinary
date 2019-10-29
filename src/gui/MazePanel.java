@@ -12,6 +12,10 @@ public class MazePanel extends JPanel {
 		this.mainWindow = mainWindow;
 		
 		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(256, 256));
+		this.setPreferredSize(new Dimension(320, 320));
+	}
+	
+	public void notifyForUpdate() {
+		// TODO: notifyForUpdate every component, inside of them, use repaint(); 
 	}
 }

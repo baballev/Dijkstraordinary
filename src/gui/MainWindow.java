@@ -2,7 +2,12 @@ package gui;
 
 import javax.swing.*;
 
-public class MainWindow extends JFrame {
+import model.MazeModel;
+
+import java.util.*;
+
+@SuppressWarnings("deprecation")
+public class MainWindow extends JFrame implements Observer {
 
 	private final MenuBar menuBar;
 	private final WindowPanel windowPanel;
@@ -29,6 +34,15 @@ public class MainWindow extends JFrame {
 		
 		this.pack();
 		this.setVisible(true);
+	}
+	
+	public void notifyForUpdate() {
+		this.windowPanel.notifyForUpdate();
+	}
+	
+	public void update(Observable observable, Object parameter) { // Called in MazeModel when using notifyObservers(Object parameter); 
 		
+		
+		this.notifyForUpdate();
 	}
 }

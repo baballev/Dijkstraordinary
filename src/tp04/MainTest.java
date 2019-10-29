@@ -16,5 +16,6 @@ public class MainTest {
 		labyrinthe.saveFromTextFile("data/labyrinthe2.txt");
 		
 		new MainWindow(); // Init window.
+		
 	}
 }

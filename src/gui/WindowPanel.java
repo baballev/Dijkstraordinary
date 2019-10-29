@@ -13,4 +13,8 @@ public final class WindowPanel extends JPanel{
 		
 		this.add(mazePanel = new MazePanel(mainWindow), BorderLayout.CENTER);
 	}
+	
+	public void notifyForUpdate() {
+		this.mazePanel.notifyForUpdate();
+	}
 }
