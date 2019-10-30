@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import dijkstra.Dijkstra;
 import maze.MBox;
 import maze.Maze;
+import gui.*;
+import model.*;
 
 public class MainTest {
 
@@ -41,5 +43,10 @@ public class MainTest {
 			System.out.println("Il n'existe pas de chemin de longueur de D vers A." );
 		}
 		labyrinthe.saveFromTextFile("data/labyrinthe2.txt");
+
+		
+		MainWindow window = new MainWindow(); 		// Init window.
+		//window.getMazeModel().setMaze(labyrinthe);	// Set the maze value in the model to the one created above from text file.
+		
 	}
 }
