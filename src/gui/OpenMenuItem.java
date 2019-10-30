@@ -18,7 +18,7 @@ public final class OpenMenuItem extends JMenuItem implements ActionListener {
 		this.addActionListener(this);
 	}
 
-	public final void actionPerformed(ActionEvent evt) {
+	public final void actionPerformed(ActionEvent e) {
 		final JFileChooser fc = new JFileChooser("data/");
 		if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 			File selectedMazeFile = fc.getSelectedFile();
