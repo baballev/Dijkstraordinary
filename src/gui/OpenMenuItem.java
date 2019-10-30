@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import maze.*;
 
 public final class OpenMenuItem extends JMenuItem implements ActionListener {
@@ -20,6 +22,10 @@ public final class OpenMenuItem extends JMenuItem implements ActionListener {
 
 	public final void actionPerformed(ActionEvent e) {
 		final JFileChooser fc = new JFileChooser("data/");
+		fc.setDialogTitle("Sélectionner le fichier du labyrinthe");
+		fc.setAcceptAllFileFilterUsed(false);
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichiers texte", "txt");
+		fc.addChoosableFileFilter(filter);
 		if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 			File selectedMazeFile = fc.getSelectedFile();
 			Maze newMaze = new Maze(10, 10); // TODO: Find a way to automatically set maze's size!

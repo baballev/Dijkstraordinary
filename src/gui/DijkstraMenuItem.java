@@ -19,12 +19,11 @@ public class DijkstraMenuItem extends JMenuItem implements ActionListener{
 	}
 
 	public final void actionPerformed(ActionEvent e) {
-		// TODO 
 		if (mainWindow.getMazeModel().getMaze() == null) {
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur: Aucun labyrinthe n'a été chargé et ne peut donc être résolu!", "Erreur", JOptionPane.ERROR_MESSAGE);
 		}
 		else {
-			
+			// TODO REPRENDRE ICIIIIII
 		}
 		
 	}

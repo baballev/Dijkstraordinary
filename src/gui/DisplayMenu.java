@@ -8,5 +8,5 @@ public final class DisplayMenu extends JMenu{
 		super("Affichage");
 		
 	}
-
+		// TODO: Add a reset view button if window is resized?
 }
