@@ -148,7 +148,7 @@ public class Maze implements GraphInterface
 				}
 				line = mazeFile.readLine();
 				i++;
-				if (i >= height)
+				if (i > height)
 					throw new MazeReadingException(fileName, i,
 							"Error: The number of lines in the file " + fileName + " does not match the maze's height.");
 			}
