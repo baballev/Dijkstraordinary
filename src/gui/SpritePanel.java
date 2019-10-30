@@ -13,13 +13,18 @@ public class SpritePanel extends JPanel {
 		super();
 		this.mainWindow = mainWindow;
 		this.sprite = new ImageIcon("data/" + box.getLabel() + "box.jpg").getImage();
-		
-		this.setBackground(Color.WHITE);
+		this.setBackground(Color.YELLOW);
 		this.setPreferredSize(new Dimension(32, 32));
+		
 	}
 	
 	public void notifyForUpdate() {
-		// TODO
+		this.repaint();
 	}
 
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(sprite, 0, 0, this);
+	}
 }

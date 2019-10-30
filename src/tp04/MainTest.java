@@ -18,7 +18,7 @@ public class MainTest {
 		labyrinthe.saveFromTextFile("data/labyrinthe2.txt");
 		
 		MainWindow window = new MainWindow(); 		// Init window.
-		window.getMazeModel().setMaze(labyrinthe);	// Set the maze value in the model to the one created above from text file.
+		//window.getMazeModel().setMaze(labyrinthe);	// Set the maze value in the model to the one created above from text file.
 		
 		
 	}

@@ -1,6 +1,9 @@
 package gui;
 
 import javax.swing.*;
+
+import maze.Maze;
+
 import java.awt.*;
 
 public final class WindowPanel extends JPanel{

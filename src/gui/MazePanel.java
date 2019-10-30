@@ -13,34 +13,27 @@ public class MazePanel extends JPanel {
 	public MazePanel(MainWindow mainWindow) { // TODO: Check if there's a more decent way of doing this
 		super();
 		this.mainWindow = mainWindow;
-		
+		this.sprites = new ArrayList<SpritePanel>();
 		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(500, 500));
+		this.setPreferredSize(new Dimension(640, 640));
 		
-	}
-	/* 		int height = mainWindow.getMazeModel().getMaze().getHeight();
-		int width = mainWindow.getMazeModel().getMaze().getWidth();
-		
-		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(width*32, height*32));
-		
-		MBox[][] boxes = mainWindow.getMazeModel().getMaze().getLabyrinthe();
-		for (MBox[] line : boxes) {
-			for (MBox box : line) {
-				
-			}
-		} */ 
-	
+	} 
 	
 	public void notifyForUpdate(Object parameter) {
 		Maze newMaze = (Maze) parameter;
 		// TODO: notifyForUpdate every component, inside of them, use repaint(); 
-		this.setLayout(new GridLayout(newMaze.getWidth(), newMaze.getHeight()));
 		
+		this.setLayout(new GridLayout(newMaze.getWidth(), newMaze.getHeight()));
+		int i =0;
 		for(MBox[] line : newMaze.getLabyrinthe()) {
 			for(MBox box : line) {
-				
+				SpritePanel sprite = new SpritePanel(this.mainWindow, box);
+				sprites.add(sprite);
+				this.add(sprite);
 			}
+		}
+		for (SpritePanel sprite : sprites) {
+			sprite.notifyForUpdate();
 		}
 	}
 }
