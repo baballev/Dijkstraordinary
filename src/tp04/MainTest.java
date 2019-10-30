@@ -21,7 +21,6 @@ public class MainTest {
 
 		Maze labyrinthe = new Maze(10,10);
 		
-		
 		labyrinthe.initFromTextFile(fileName);
 		
 		VertexInterface start = labyrinthe.getStart();
@@ -43,10 +42,8 @@ public class MainTest {
 			System.out.println("Il n'existe pas de chemin de longueur de D vers A." );
 		}
 		labyrinthe.saveFromTextFile("data/labyrinthe2.txt");
-
 		
 		MainWindow window = new MainWindow(); 		// Init window.
-		//window.getMazeModel().setMaze(labyrinthe);	// Set the maze value in the model to the one created above from text file.
 		
 	}
 }

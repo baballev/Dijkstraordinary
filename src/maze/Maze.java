@@ -25,6 +25,12 @@ public class Maze implements GraphInterface
 		labyrinthe = new MBox[height][width];
 	}
 
+	public Maze() { // Default maze size is 10 x 10
+		this.height = 10;
+		this.width = 10;
+		this.labyrinthe = new MBox[this.height][this.width];
+	}
+	
 	public ArrayList<VertexInterface> getAllVertices() {
 		ArrayList<VertexInterface> verticesList = new ArrayList<VertexInterface>();
 		for (MBox[] X : labyrinthe) {
@@ -55,7 +61,30 @@ public class Maze implements GraphInterface
 		}
 		return successorsList;
 	}
-
+	
+	public void setSizeFromTextFile(String path) { // Allows to set the size of maze object according to the structure of a text file
+		BufferedReader mazeFile = null;
+		try {
+			mazeFile = new BufferedReader(new FileReader(path));
+			int i = 1;
+			String line = mazeFile.readLine();
+			this.width = line.length();
+			while (line != "") {
+				// TODO height counting the numbers of line
+				i++;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+			mazeFile.close();
+			} catch(Exception e) {
+			}
+			
+		}
+	}
+	
 	public int getWidth() {
 		return width;
 	}
@@ -81,7 +110,6 @@ public class Maze implements GraphInterface
 			return Integer.MAX_VALUE;
 		}
 	}
-
 
 	public VertexInterface getStart() {
 		int i = 0 ;
