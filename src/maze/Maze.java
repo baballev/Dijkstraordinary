@@ -66,14 +66,14 @@ public class Maze implements GraphInterface
 		BufferedReader mazeFile = null;
 		try {
 			mazeFile = new BufferedReader(new FileReader(path));
-			int i = 1;
+			int i = 0;
 			String line = mazeFile.readLine();
 			this.width = line.length();
-			while (line != "") {
-				// TODO height counting the numbers of line
+			while (line != null) {
 				i++;
+				line = mazeFile.readLine();
 			}
-			
+			this.height = i;
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
