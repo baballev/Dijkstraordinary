@@ -44,5 +44,6 @@ public class MainWindow extends JFrame implements Observer {
 	public void update(Observable observable, Object parameter) { // Called in MazeModel when using notifyObservers(Object parameter); 
 		
 		this.notifyForUpdate(parameter);
+		this.pack();
 	}
 }
