@@ -37,12 +37,12 @@ public class MainWindow extends JFrame implements Observer {
 		this.setVisible(true);
 	}
 	
-	public void notifyForUpdate() {
-		this.windowPanel.notifyForUpdate();
+	public void notifyForUpdate(Object parameter) {
+		this.windowPanel.notifyForUpdate(parameter);
 	}
 	
 	public void update(Observable observable, Object parameter) { // Called in MazeModel when using notifyObservers(Object parameter); 
 		
-		this.notifyForUpdate();
+		this.notifyForUpdate(parameter);
 	}
 }

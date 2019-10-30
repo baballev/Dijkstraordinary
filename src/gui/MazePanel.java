@@ -32,8 +32,15 @@ public class MazePanel extends JPanel {
 		} */ 
 	
 	
-	public void notifyForUpdate() {
+	public void notifyForUpdate(Object parameter) {
+		Maze newMaze = (Maze) parameter;
 		// TODO: notifyForUpdate every component, inside of them, use repaint(); 
-		//this.setLayout(new GridLayout());
+		this.setLayout(new GridLayout(newMaze.getWidth(), newMaze.getHeight()));
+		
+		for(MBox[] line : newMaze.getLabyrinthe()) {
+			for(MBox box : line) {
+				
+			}
+		}
 	}
 }
