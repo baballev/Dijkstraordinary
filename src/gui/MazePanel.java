@@ -15,13 +15,13 @@ public class MazePanel extends JPanel {
 		this.mainWindow = mainWindow;
 		this.sprites = new ArrayList<SpritePanel>();
 		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(640, 640)); // TODO: auto adapat size
-		
+		this.setPreferredSize(new Dimension(640, 640)); // TODO: auto adapated size
 	} 
 	
 	public void notifyForUpdate(Object parameter) {
+		this.removeAll();
 		Maze newMaze = (Maze) parameter;
-		
+		sprites.removeAll(sprites); // Empty the arraylist
 		this.setLayout(new GridLayout(newMaze.getWidth(), newMaze.getHeight()));
 		int i =0;
 		for(MBox[] line : newMaze.getLabyrinthe()) {

@@ -28,8 +28,10 @@ public final class OpenMenuItem extends JMenuItem implements ActionListener {
 		fc.addChoosableFileFilter(filter);
 		if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 			File selectedMazeFile = fc.getSelectedFile();
-			Maze newMaze = new Maze(10, 10); // TODO: Find a way to automatically set maze's size!
-			newMaze.initFromTextFile(selectedMazeFile.getAbsolutePath());
+			Maze newMaze = new Maze();
+			String path  = selectedMazeFile.getAbsolutePath();
+			newMaze.setSizeFromTextFile(path);
+			newMaze.initFromTextFile(path);
 			mainWindow.getMazeModel().setMaze(newMaze); 
 		}
 	}
