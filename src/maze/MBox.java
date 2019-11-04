@@ -2,7 +2,7 @@ package maze;
 
 import dijkstra.VertexInterface;
 
-public class MBox implements VertexInterface {
+public abstract class MBox implements VertexInterface {
 
 	private int x;
 	private int y;
