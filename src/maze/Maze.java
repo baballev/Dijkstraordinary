@@ -144,6 +144,8 @@ public class Maze implements GraphInterface
 
 	public final void initFromTextFile(String fileName) { // TODO: Manage exceptions on mutltiple DBox or ABox.
 		int i = 0;
+		int ABoxCount = 0;
+		int DBoxCount = 0;
 		BufferedReader mazeFile = null;
 		try {
 			mazeFile = new BufferedReader(new FileReader(fileName));
@@ -158,6 +160,7 @@ public class Maze implements GraphInterface
 					switch (c) {  // TODO: How to avoid the switch statement here. I can't find a way with the imposed data structure.
 					case 'A':
 						newBox = new ABox(this, k, i);
+						ABoxCount++;
 						break;
 					case 'W':
 						newBox = new WBox(this, k, i);
@@ -167,11 +170,13 @@ public class Maze implements GraphInterface
 						break;
 					case 'D':
 						newBox = new DBox(this, k, i);
+						DBoxCount++;
 						break;
 					default:
 						throw new MazeReadingException(fileName, i,
 								"Error: Unexpected character in " + fileName + " at line " + i);
 					}
+					if (DBoxCount > 1 || ABoxCount > 1) throw new MazeReadingException(fileName, i, "Error: Invalid maze file. There are multiple Departures or Arrivals.");
 					this.labyrinthe[i][k] = newBox;
 				}
 				line = mazeFile.readLine();
