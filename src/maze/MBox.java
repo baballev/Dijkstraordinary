@@ -21,16 +21,14 @@ public abstract class MBox implements VertexInterface {
 	public int getY() {
 		return y;
 	}
-
-	public String getLabel() {
-		return "";
-	}
-	
-	public void setLabel() {
-	}
 	
 	public Maze getMaze() {
 		return labyrinthe;
 	}
 
+	public abstract String getName();
+
+	public abstract String getLabel();
+	
+	public abstract void setLabel();
 }

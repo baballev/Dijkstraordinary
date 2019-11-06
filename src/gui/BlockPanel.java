@@ -11,11 +11,11 @@ public class BlockPanel extends JPanel {
 	private final SpritePanel spritePanel;
 	private final JLabel label;
 		
-	public BlockPanel(MainWindow mainWindow, MBox box, String label) {
+	public BlockPanel(MainWindow mainWindow, MBox box) {
 		super();
 		this.mainWindow = mainWindow;
 		this.add(this.spritePanel = new SpritePanel(mainWindow, box));
-		this.add(this.label = new JLabel(label, JLabel.RIGHT));
+		this.add(this.label = new JLabel(box.getName(), JLabel.RIGHT));
 	}
 	
 	public void notifyForUpdate() {

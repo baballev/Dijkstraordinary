@@ -1,33 +1,34 @@
 package model;
 
 import java.util.Observable;
-import java.util.ArrayList;
 
-import maze.Maze;
+import maze.MBox;
+
+import java.util.ArrayList;
 
 @SuppressWarnings("deprecation")
 public final class EditorModel extends Observable {
 	
-	private ArrayList<Maze> mazeList;
+	private ArrayList<MBox> boxList;
 	
 	public EditorModel() {
-		this.mazeList = new ArrayList<Maze>();
+		this.boxList = new ArrayList<MBox>();
 	}
 	
-	public ArrayList<Maze> getMazeList() {
-		return this.mazeList;
+	public ArrayList<MBox> getMazeList() {
+		return this.boxList;
 	}
 	
-	public void addToMazeList(Maze maze) {
-		this.mazeList.add(maze);
+	public void addToBoxList(MBox box) {
+		this.boxList.add(box);
 		this.setChanged();
-		this.notifyObservers(this.mazeList.get(this.mazeList.size()-1).getMbox(0, 0));
+		this.notifyObservers(this.boxList.get(this.boxList.size()-1));
 	}
 	
-	public void removeFromMazeList(Maze maze) {
-		this.mazeList.remove(maze);
+	public void removeFromBoxList(MBox box) {
+		this.boxList.remove(box);
 		this.setChanged();
-		this.notifyObservers(this.mazeList.get(this.mazeList.size()-1).getMbox(0, 0));
+		this.notifyObservers(this.boxList.get(this.boxList.size()-1));
 	}
 
 }
