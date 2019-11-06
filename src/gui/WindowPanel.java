@@ -19,7 +19,7 @@ public final class WindowPanel extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		this.add(mazePanel = new MazePanel(mainWindow), BorderLayout.CENTER);
+		this.add(mazePanel = new MazePanel(mainWindow), BorderLayout.WEST);
 		this.add(editorPanel = new EditorPanel(mainWindow), BorderLayout.EAST);
 	}
 	

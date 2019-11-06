@@ -20,12 +20,10 @@ public class EditorPanel extends JPanel {
 		this.blockPanelList = new ArrayList<BlockPanel>();
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(200, 500));
+		this.setPreferredSize(new Dimension(150, 200));
 	}
 
 	public void notifyForUpdate(Object parameter) {
-		System.out.println("Chips");
 		this.removeAll();
 		MBox newMBox = (MBox) parameter;
 		BlockPanel blockPanel = new BlockPanel(this.mainWindow, newMBox);

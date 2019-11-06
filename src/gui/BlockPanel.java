@@ -1,11 +1,13 @@
 package gui;
 
+import java.awt.Color;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import maze.MBox;
 
-public class BlockPanel extends JPanel {
+public class BlockPanel extends JPanel { // TODO: Transform each BlockPanel in buttons
 	
 	private final MainWindow mainWindow;
 	private final SpritePanel spritePanel;
