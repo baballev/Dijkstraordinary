@@ -4,10 +4,11 @@ import javax.swing.*;
 
 import model.MazeModel;
 
+import java.awt.Dimension;
 import java.util.*;
 
 @SuppressWarnings("deprecation")
-public class MainWindow extends JFrame implements Observer {
+public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER TOUT LE PACKAGE GUI EN SOUS PACKAGES.
 
 	private final MenuBar menuBar;
 	private final WindowPanel windowPanel;

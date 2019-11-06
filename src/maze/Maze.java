@@ -26,9 +26,9 @@ public class Maze implements GraphInterface
 		labyrinthe = new MBox[height][width];
 	}
 
-	public Maze() { // Default maze size is 10 x 10
-		this.height = 10;
-		this.width = 10;
+	public Maze() { // Default maze size is 1 x 1
+		this.height = 1;
+		this.width = 1;
 		this.labyrinthe = new MBox[this.height][this.width];
 	}
 	
@@ -75,6 +75,7 @@ public class Maze implements GraphInterface
 				line = mazeFile.readLine();
 			}
 			this.height = i;
+			this.labyrinthe = new MBox[this.height][this.width];
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
