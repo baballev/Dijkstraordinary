@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import dijkstra.GraphInterface;
 import dijkstra.VertexInterface;
 import tp04.MazeReadingException;
+import tp04.MazeWritingException;
 
 public class Maze implements GraphInterface
 
@@ -197,24 +198,30 @@ public class Maze implements GraphInterface
 		}
 	}
 	
-	public final void saveFromTextFile(String fileName) { // TODO: Manage exceptions on multiple DBox or ABox.
+	public final void saveFromTextFile(String fileName) {
 		
 		BufferedWriter writer = null;
 		try{
 			writer = new BufferedWriter(new FileWriter(fileName));
-		
-		
+			int dBoxCount = 0;
+			int aBoxCount = 0;
+			int lineCount = 0;
 			for (MBox[] X : labyrinthe) {
 				for (MBox x : X) {
 					String str;
 					str = x.getLabel();
 					char c = str.charAt(0);
 					writer.write(c);
+					if (c == 'D') dBoxCount++;
+					else if (c == 'A') aBoxCount++;
 				}
+				if (dBoxCount > 1 || aBoxCount > 1) throw new MazeWritingException(fileName, lineCount, "Error: Invalid maze file. Can't write a maze file with multiple Departures or Arrivals.");
 				writer.write("\n");
 			}
 		}
-		catch(Exception e){}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		finally {
 			try {
 				writer.close();
