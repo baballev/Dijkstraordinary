@@ -17,7 +17,6 @@ public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER 
 	
 	public MainWindow() {
 		super("Labyrinthe");
-		editorModel = new EditorModel();
 		this.mazeModel.addObserver(this);
 		this.editorModel.addObserver(this);
 		
@@ -52,7 +51,7 @@ public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER 
 	public void notifyForUpdate(Object parameter) {
 		this.windowPanel.notifyForUpdate(parameter);
 	}
-	
+
 	public void update(Observable observable, Object parameter) { // Called in MazeModel when using notifyObservers(Object parameter); 
 		this.notifyForUpdate(parameter);
 		this.pack();						// Needed, otherwise the panel won't display unless the window is resized.

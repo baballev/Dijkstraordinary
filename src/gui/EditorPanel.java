@@ -20,21 +20,24 @@ public class EditorPanel extends JPanel {
 		this.blockPanelList = new ArrayList<BlockPanel>();
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
 		this.blockPanelList.add(new BlockPanel(this.mainWindow, new EBox(new Maze(), 0, 0), "Empty"));
 		this.blockPanelList.add(new BlockPanel(this.mainWindow, new WBox(new Maze(), 0, 0), "Wall"));
 		this.blockPanelList.add(new BlockPanel(this.mainWindow, new ABox(new Maze(), 0, 0), "Arrival"));
 		this.blockPanelList.add(new BlockPanel(this.mainWindow, new DBox(new Maze(), 0, 0), "Departure"));
 		
 		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(300, 500));
+		this.setPreferredSize(new Dimension(200, 500));
 		
 	}
 
-	public void notifyForUpdate() {
+	public void notifyForUpdate(Object parameter) {
+		this.removeAll();
+		MBox newMBox = (MBox) parameter;
+		this.blockPanelList.add(new BlockPanel(this.mainWindow, newMBox,))  // TODO: 1) create package with new object label + Sprite to draw 2) Update and display when opening file in OpenMenu 3) Update Model to implement the new object 
 		for (BlockPanel b : blockPanelList) {
 			b.notifyForUpdate();
 		}
 	}
+
 	
 }

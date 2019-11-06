@@ -16,7 +16,6 @@ public class BlockPanel extends JPanel {
 		this.mainWindow = mainWindow;
 		this.add(this.spritePanel = new SpritePanel(mainWindow, box));
 		this.add(this.label = new JLabel(label, JLabel.RIGHT));
-		this.mainWindow.getEditorModel().addToMazeList(box.getMaze());
 	}
 	
 	public void notifyForUpdate() {

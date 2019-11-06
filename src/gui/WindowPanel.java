@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.*;
 
-import maze.Maze;
+import maze.*;
 import model.*;
 
 import java.awt.*;
@@ -24,6 +24,6 @@ public final class WindowPanel extends JPanel{
 	
 	public void notifyForUpdate(Object parameter) {
 		if (parameter instanceof Maze) this.mazePanel.notifyForUpdate(parameter);
-		else if (parameter instanceof ArrayList<?>) this.editorPanel.notifyForUpdate();
+		else if (parameter instanceof MBox) this.editorPanel.notifyForUpdate(parameter);
 	}
 }

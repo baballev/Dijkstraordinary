@@ -21,13 +21,13 @@ public final class EditorModel extends Observable {
 	public void addToMazeList(Maze maze) {
 		this.mazeList.add(maze);
 		this.setChanged();
-		this.notifyObservers(this.mazeList);
+		this.notifyObservers(this.mazeList.get(this.mazeList.size()-1).getMbox(0, 0));
 	}
 	
 	public void removeFromMazeList(Maze maze) {
 		this.mazeList.remove(maze);
 		this.setChanged();
-		this.notifyObservers(this.mazeList);
+		this.notifyObservers(this.mazeList.get(this.mazeList.size()-1).getMbox(0, 0));
 	}
 
 }
