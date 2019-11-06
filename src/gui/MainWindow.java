@@ -2,7 +2,7 @@ package gui;
 
 import javax.swing.*;
 
-import model.MazeModel;
+import model.*;
 
 import java.awt.Dimension;
 import java.util.*;
@@ -13,18 +13,13 @@ public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER 
 	private final MenuBar menuBar;
 	private final WindowPanel windowPanel;
 	private MazeModel mazeModel = new MazeModel();
+	private EditorModel editorModel = new EditorModel();
 	
-	public MazeModel getMazeModel() {
-		return mazeModel;
-	}
-
-	public void setMazeModel(MazeModel mazeModel) {
-		this.mazeModel = mazeModel;
-	}
-
 	public MainWindow() {
 		super("Labyrinthe");
+		editorModel = new EditorModel();
 		this.mazeModel.addObserver(this);
+		this.editorModel.addObserver(this);
 		
 		menuBar = new MenuBar(this);
 		setJMenuBar(menuBar);
@@ -38,12 +33,27 @@ public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER 
 		this.setVisible(true);
 	}
 	
+	public MazeModel getMazeModel() {
+		return this.mazeModel;
+	}
+
+	public void setMazeModel(MazeModel mazeModel) {
+		this.mazeModel = mazeModel;
+	}
+	
+	public EditorModel getEditorModel() {
+		return this.editorModel;
+	}
+
+	public void setEditorModel(EditorModel editorModel) {
+		this.editorModel = editorModel;
+	}
+	
 	public void notifyForUpdate(Object parameter) {
 		this.windowPanel.notifyForUpdate(parameter);
 	}
 	
 	public void update(Observable observable, Object parameter) { // Called in MazeModel when using notifyObservers(Object parameter); 
-		
 		this.notifyForUpdate(parameter);
 		this.pack();						// Needed, otherwise the panel won't display unless the window is resized.
 	}

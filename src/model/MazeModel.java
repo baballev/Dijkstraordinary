@@ -23,7 +23,7 @@ public final class MazeModel extends Observable {
 		this.setChanged();
 		this.notifyObservers(maze);
 	}
-	// notifyObservers();  or notifyObservers(Object parameter); after
+
 	
 	
 	

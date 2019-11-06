@@ -29,5 +29,8 @@ public abstract class MBox implements VertexInterface {
 	public void setLabel() {
 	}
 	
+	public Maze getMaze() {
+		return labyrinthe;
+	}
 
 }

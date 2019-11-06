@@ -3,11 +3,14 @@ package gui;
 import javax.swing.*;
 
 import maze.Maze;
+import model.*;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Observable;
 
 public final class WindowPanel extends JPanel{
-	private final MazePanel mazePanel;  // TODO: check final keyword.
+	private final MazePanel mazePanel;
 	private final EditorPanel editorPanel;
 	
 	public WindowPanel(MainWindow mainWindow) {
@@ -20,6 +23,7 @@ public final class WindowPanel extends JPanel{
 	}
 	
 	public void notifyForUpdate(Object parameter) {
-		this.mazePanel.notifyForUpdate(parameter);
+		if (parameter instanceof Maze) this.mazePanel.notifyForUpdate(parameter);
+		else if (parameter instanceof ArrayList<?>) this.editorPanel.notifyForUpdate();
 	}
 }
