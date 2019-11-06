@@ -143,7 +143,7 @@ public class Maze implements GraphInterface
 		return (v);
 	}	
 
-	public final void initFromTextFile(String fileName) { // TODO: Manage exceptions on mutltiple DBox or ABox.
+	public final void initFromTextFile(String fileName) { 
 		int i = 0;
 		int ABoxCount = 0;
 		int DBoxCount = 0;
