@@ -25,10 +25,13 @@ public class EditorPanel extends JPanel {
 	}
 
 	public void notifyForUpdate(Object parameter) {
+		System.out.println("Chips");
 		this.removeAll();
 		MBox newMBox = (MBox) parameter;
-		this.blockPanelList.add(new BlockPanel(this.mainWindow, newMBox)); 
+		BlockPanel blockPanel = new BlockPanel(this.mainWindow, newMBox);
+		this.blockPanelList.add(blockPanel);
 		for (BlockPanel b : blockPanelList) {
+			this.add(b);
 			b.notifyForUpdate();
 		}
 	}

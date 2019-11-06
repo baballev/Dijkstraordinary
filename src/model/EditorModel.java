@@ -24,11 +24,11 @@ public final class EditorModel extends Observable {
 		this.setChanged();
 		this.notifyObservers(this.boxList.get(this.boxList.size()-1));
 	}
-	
+	/*
 	public void removeFromBoxList(MBox box) {
 		this.boxList.remove(box);
 		this.setChanged();
 		this.notifyObservers(this.boxList.get(this.boxList.size()-1));
 	}
-
+    */
 }

@@ -15,7 +15,7 @@ public class BlockPanel extends JPanel {
 		super();
 		this.mainWindow = mainWindow;
 		this.add(this.spritePanel = new SpritePanel(mainWindow, box));
-		this.add(this.label = new JLabel(box.getName(), JLabel.RIGHT));
+		this.add(this.label = new JLabel(box.getName(), JLabel.CENTER));
 	}
 	
 	public void notifyForUpdate() {

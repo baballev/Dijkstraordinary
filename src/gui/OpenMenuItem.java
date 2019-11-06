@@ -37,7 +37,7 @@ public final class OpenMenuItem extends JMenuItem implements ActionListener {
 			mainWindow.getEditorModel().addToBoxList(new EBox(new Maze(), 0, 0));
 			mainWindow.getEditorModel().addToBoxList(new WBox(new Maze(), 0, 0));
 			mainWindow.getEditorModel().addToBoxList(new DBox(new Maze(), 0, 0));
-			mainWindow.getEditorModel().addToBoxList(new EBox(new Maze(), 0, 0));
+			mainWindow.getEditorModel().addToBoxList(new ABox(new Maze(), 0, 0));
 			
 		}
 	}
