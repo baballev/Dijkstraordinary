@@ -22,6 +22,7 @@ public class EditorPanel extends JPanel {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setPreferredSize(new Dimension(150, 200));
 	}
+	
 
 	public void notifyForUpdate(Object parameter) {
 		this.removeAll();
