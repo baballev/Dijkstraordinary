@@ -22,8 +22,15 @@ public final class EditorModel extends Observable {
 	public void addToBoxList(MBox box) {
 		this.boxList.add(box);
 		this.setChanged();
-		this.notifyObservers(this.boxList.get(this.boxList.size()-1));
+		this.notifyObservers(this.boxList);
 	}
+	
+	public void clearBoxList() {
+		this.boxList.clear();
+		//		this.setChanged(); TODO: remove comments
+		// this.notifyObservers(this.boxList);
+	}
+
 	/*
 	public void removeFromBoxList(MBox box) {
 		this.boxList.remove(box);
