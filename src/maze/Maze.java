@@ -1,4 +1,4 @@
-package maze;
+	package maze;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -102,7 +102,12 @@ public class Maze implements GraphInterface
 	public MBox getMbox(int x, int y) {
 		return labyrinthe[y][x];
 	}
-
+	
+	public void setMbox(int x, int y, MBox mBox) {
+		this.labyrinthe[y][x] = mBox;
+	}
+	
+	
 	public int getWeight(VertexInterface src, VertexInterface dst) {
 		ArrayList<VertexInterface> successorsList = getSuccessors(src);
 

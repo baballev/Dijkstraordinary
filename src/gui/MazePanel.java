@@ -27,7 +27,7 @@ public class MazePanel extends JPanel {
 		this.mainWindow.setMinimumSize(new Dimension(64*newMaze.getWidth() + 200, 64*newMaze.getHeight()+ 50));
 		for(MBox[] line : newMaze.getLabyrinthe()) {
 			for(MBox box : line) {
-				SpritePanel sprite = new SpritePanel(this.mainWindow, box);
+				SpritePanel sprite = new ClickableSpritePanel(this.mainWindow, box);
 				sprites.add(sprite);
 				this.add(sprite);
 			}

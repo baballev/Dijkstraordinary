@@ -21,6 +21,7 @@ public final class WindowPanel extends JPanel{
 		
 		this.add(mazePanel = new MazePanel(mainWindow), BorderLayout.WEST);
 		this.add(editorPanel = new EditorPanel(mainWindow), BorderLayout.EAST);
+		this.setBackground(Color.WHITE);
 	}
 	
 	public void notifyForUpdate(Observable observable, Object parameter) {

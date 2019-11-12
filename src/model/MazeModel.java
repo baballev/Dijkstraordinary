@@ -23,9 +23,11 @@ public final class MazeModel extends Observable {
 		this.setChanged();
 		this.notifyObservers(maze);
 	}
-
 	
-	
-	
-	
+	public void changeMBox(int x, int y) {
+		
+		
+		this.setChanged();
+		this.notifyObservers(maze);
+	}
 }
