@@ -24,7 +24,9 @@ public final class WindowPanel extends JPanel{
 	}
 	
 	public void notifyForUpdate(Observable observable, Object parameter) {
-		if (observable instanceof MazeModel) this.mazePanel.notifyForUpdate(parameter); // Allow to know where the notify comes from.
+		if (observable instanceof MazeModel) { 	// Allow to know where the notify comes from.
+			this.mazePanel.notifyForUpdate(parameter); 
+		}
 		else if (observable instanceof EditorModel) this.editorPanel.notifyForUpdate(parameter);
 	}
 }

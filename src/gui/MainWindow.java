@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import model.*;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.*;
 
@@ -25,7 +26,7 @@ public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER 
 		
 		windowPanel = new WindowPanel(this);
 		this.setContentPane(windowPanel);
-		
+		this.setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.pack();
