@@ -11,12 +11,25 @@ public final class EditorModel extends Observable {
 	
 	private int clickedIndex;
 	private ArrayList<MBox> boxList;
+	private MazeModel mazeModel;
 	
 	public EditorModel() {
 		this.boxList = new ArrayList<MBox>();
 		this.clickedIndex = -1;
 	}
 	
+	public void setMazeModel(MazeModel editorModel){
+		this.mazeModel = mazeModel;
+	}
+	
+	public int getClickedIndex() {
+		return clickedIndex;
+	}
+
+	public void setClickedIndex(int clickedIndex) {
+		this.clickedIndex = clickedIndex;
+	}
+
 	public ArrayList<MBox> getMazeList() {
 		return this.boxList;
 	}

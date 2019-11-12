@@ -20,6 +20,8 @@ public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER 
 		super("Labyrinthe");
 		this.mazeModel.addObserver(this);
 		this.editorModel.addObserver(this);
+		this.mazeModel.setEditorModel(this.editorModel);
+		this.editorModel.setMazeModel(this.mazeModel);
 		
 		menuBar = new MenuBar(this);
 		setJMenuBar(menuBar);

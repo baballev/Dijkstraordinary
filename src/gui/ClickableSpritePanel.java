@@ -6,16 +6,22 @@ import java.awt.event.MouseListener;
 import maze.MBox;
 
 public class ClickableSpritePanel extends SpritePanel implements MouseListener{
-
-	public ClickableSpritePanel(MainWindow mainWindow, MBox box) {
+	
+	private final MainWindow mainWindow;
+	private final int x;
+	private final int y;
+	
+	public ClickableSpritePanel(MainWindow mainWindow, MBox box, int x, int y) {
 		super(mainWindow, box);
+		this.mainWindow = mainWindow;
+		this.x = x;
+		this.y = y;
+		
 		this.addMouseListener(this);
 	}
 	
 	public void mousePressed(MouseEvent e) {
-		//this.mainWindow.getMazeModel().changeMBox(this.getX(), this.getY());
-		System.out.println(this.getAlignmentX());
-		
+		this.mainWindow.getMazeModel().changeMBox(this.x, this.y);
 	}
 	public void mouseReleased(MouseEvent e) {
 	}
