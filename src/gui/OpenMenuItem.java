@@ -33,13 +33,7 @@ public final class OpenMenuItem extends JMenuItem implements ActionListener {
 			newMaze.setSizeFromTextFile(path);
 			newMaze.initFromTextFile(path);
 			mainWindow.getMazeModel().setMaze(newMaze); 
-			
-			mainWindow.getEditorModel().clearBoxList();	
-			mainWindow.getEditorModel().addToBoxList(new EBox(new Maze(), 0, 0));
-			mainWindow.getEditorModel().addToBoxList(new WBox(new Maze(), 0, 0));
-			mainWindow.getEditorModel().addToBoxList(new DBox(new Maze(), 0, 0));
-			mainWindow.getEditorModel().addToBoxList(new ABox(new Maze(), 0, 0));
-			
+			mainWindow.getEditorModel().setupEditor();
 		}
 	}
 }

@@ -108,6 +108,14 @@ public class Maze implements GraphInterface
 	}
 	
 	
+	public void fillWithEmpty() { // Replace all MBoxes with empty boxes
+		for (int k=0; k<this.height; k++) {
+			for (int i=0; i<this.width; i++) {
+				this.labyrinthe[k][i] = new EBox(this, i, k);
+			}
+		}
+	}
+	
 	public int getWeight(VertexInterface src, VertexInterface dst) {
 		ArrayList<VertexInterface> successorsList = getSuccessors(src);
 

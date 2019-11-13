@@ -2,7 +2,12 @@ package model;
 
 import java.util.Observable;
 
+import maze.ABox;
+import maze.DBox;
+import maze.EBox;
 import maze.MBox;
+import maze.Maze;
+import maze.WBox;
 
 import java.util.ArrayList;
 
@@ -34,13 +39,13 @@ public final class EditorModel extends Observable {
 		return this.boxList;
 	}
 	
-	public void addToBoxList(MBox box) {
+	private void addToBoxList(MBox box) {
 		this.boxList.add(box);
 		this.setChanged();
 		this.notifyObservers(this.boxList);
 	}
 	
-	public void clearBoxList() {
+	private void clearBoxList() {
 		this.boxList.clear();
 		this.setChanged(); 
 		this.notifyObservers(this.boxList);
@@ -52,4 +57,12 @@ public final class EditorModel extends Observable {
 		this.notifyObservers(this.clickedIndex);
 	}
 
+	
+	public void setupEditor() {
+		this.clearBoxList();	
+		this.addToBoxList(new EBox(new Maze(), 0, 0));
+		this.addToBoxList(new WBox(new Maze(), 0, 0));
+		this.addToBoxList(new DBox(new Maze(), 0, 0));
+		this.addToBoxList(new ABox(new Maze(), 0, 0));
+	}
 }
