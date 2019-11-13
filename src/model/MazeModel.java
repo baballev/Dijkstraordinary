@@ -10,9 +10,11 @@ public final class MazeModel extends Observable {
 	
 	private Maze maze;
 	private EditorModel editorModel;
+	private boolean modified;
 	
 	public MazeModel() {
 		this.maze = null;
+		this.modified = false;
 	}
 
 	public Maze getMaze() {
@@ -29,6 +31,10 @@ public final class MazeModel extends Observable {
 		this.notifyObservers(maze);
 	}
 	
+	public boolean isModified() {
+		return this.modified;
+	}
+	
 	public void changeMBox(int x, int y) {
 		if (this.editorModel.getClickedIndex() == 0) {
 			this.maze.setMbox(x, y, new EBox(this.maze, x, y));
@@ -39,6 +45,7 @@ public final class MazeModel extends Observable {
 		} else if (this.editorModel.getClickedIndex() == 3) {
 			this.maze.setMbox(x, y, new ABox(this.maze, x, y));
 		}
+		this.modified = true;
 		this.setChanged();
 		this.notifyObservers(maze);
 	}

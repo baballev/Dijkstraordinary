@@ -56,9 +56,9 @@ public final class EditorModel extends Observable {
 		this.setChanged(); 
 		this.notifyObservers(this.clickedIndex);
 	}
-
 	
 	public void setupEditor() {
+		this.clickedIndex = -1;
 		this.clearBoxList();	
 		this.addToBoxList(new EBox(new Maze(), 0, 0));
 		this.addToBoxList(new WBox(new Maze(), 0, 0));

@@ -21,6 +21,9 @@ public final class OpenMenuItem extends JMenuItem implements ActionListener {
 	}
 
 	public final void actionPerformed(ActionEvent e) {
+		
+		// TODO: modified mazeModel, demander confirmation à l'utilisateur s'il n'a pas sauvegardé le fichier avant d'ouvrir un nouveau labyrinthe.
+		
 		final JFileChooser fc = new JFileChooser("data/");
 		fc.setDialogTitle("Sélectionner le fichier du labyrinthe");
 		fc.setAcceptAllFileFilterUsed(false);
