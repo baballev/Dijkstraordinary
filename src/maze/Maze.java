@@ -107,6 +107,18 @@ public class Maze implements GraphInterface
 		this.labyrinthe[y][x] = mBox;
 	}
 	
+	public boolean isLegit() { // Return true if the maze is legit. (No or multiple departures/arrivals => not legit)
+		int dCounter = 0;
+		int aCounter = 0;
+		for (MBox[] line : labyrinthe) {
+			for (MBox mBox : line) {
+				if (mBox.getLabel() == "A") aCounter++;
+				else if (mBox.getLabel() == "D") dCounter++;
+			}
+		}
+		if (dCounter != 1 || aCounter != 1) return false;
+		else return true;	
+	}
 	
 	public void fillWithEmpty() { // Replace all MBoxes with empty boxes
 		for (int k=0; k<this.height; k++) {

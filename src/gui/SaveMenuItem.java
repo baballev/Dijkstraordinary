@@ -5,6 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import maze.Maze;
+import tp04.InvalidMazeException;
+
 public final class SaveMenuItem extends JMenuItem implements ActionListener {
 
 	private final MainWindow mainWindow;
@@ -17,11 +20,22 @@ public final class SaveMenuItem extends JMenuItem implements ActionListener {
 	}
 	
 	public final void actionPerformed(ActionEvent e) {
-		JFileChooser saveChooser = new JFileChooser("data/");
-		saveChooser.setDialogTitle("Sélectionner le fichier du labyrinthe");
-		if(saveChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-			this.mainWindow.getMazeModel().getMaze().saveFromTextFile(saveChooser.getSelectedFile().getAbsolutePath());
-		}
+			try {
+				if (!mainWindow.getMazeModel().getMaze().isLegit()) throw new InvalidMazeException("Erreur: Labyrinthe icorrect.");
+				JFileChooser saveChooser = new JFileChooser("data/");
+				saveChooser.setDialogTitle("Sélectionner le fichier du labyrinthe");
+				if(saveChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+					this.mainWindow.getMazeModel().getMaze().saveFromTextFile(saveChooser.getSelectedFile().getAbsolutePath());
+				}
+			} catch (InvalidMazeException ime) {
+				ime.printStackTrace();
+				JOptionPane.showMessageDialog(new JFrame(), ime.getErrorMessage(), "Erreur",
+						JOptionPane.ERROR_MESSAGE);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				JOptionPane.showMessageDialog(new JFrame(), "Erreur: Une erreur s'est produite lors de l'écriture du fichier. Vérifiez les droits d'accès de l'applicaiton.", "Erreur",
+						JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	
 }
