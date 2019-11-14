@@ -1,8 +1,9 @@
-package gui;
+package gui.panel;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import gui.MainWindow;
 import maze.MBox;
 
 public class ClickableSpritePanel extends SpritePanel implements MouseListener{

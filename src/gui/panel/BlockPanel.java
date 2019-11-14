@@ -1,4 +1,4 @@
-package gui;
+package gui.panel;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import gui.MainWindow;
 import maze.MBox;
 
 public class BlockPanel extends JPanel implements MouseListener{ 

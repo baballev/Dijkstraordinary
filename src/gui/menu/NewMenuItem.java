@@ -1,7 +1,8 @@
-package gui;
+package gui.menu;
 
 import javax.swing.*; // GUI
 
+import gui.MainWindow;
 import maze.Maze;
 import tp04.InvalidMazeException;
 

@@ -1,10 +1,12 @@
-package gui;
+package gui.panel;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import gui.MainWindow;
+import gui.model.EditorModel;
+import gui.model.MazeModel;
 import maze.*;
-import model.*;
 import tp04.InvalidMazeException;
 
 import java.awt.*;

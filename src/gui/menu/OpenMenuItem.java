@@ -1,4 +1,4 @@
-package gui;
+package gui.menu;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,6 +7,7 @@ import java.io.File;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import gui.MainWindow;
 import maze.*;
 import tp04.InvalidMazeException;
 

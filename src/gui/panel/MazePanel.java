@@ -1,6 +1,8 @@
-package gui;
+package gui.panel;
 
 import javax.swing.*;
+
+import gui.MainWindow;
 import maze.*;
 import java.awt.*;
 import java.util.ArrayList;

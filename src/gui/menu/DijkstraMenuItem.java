@@ -1,10 +1,12 @@
-package gui;
+package gui.menu;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.*;
+
+import gui.MainWindow;
 import maze.*;
 
 public class DijkstraMenuItem extends JMenuItem implements ActionListener{

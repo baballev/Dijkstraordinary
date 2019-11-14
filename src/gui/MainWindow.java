@@ -2,14 +2,17 @@ package gui;
 
 import javax.swing.*;
 
-import model.*;
+import gui.menu.MenuBar;
+import gui.model.EditorModel;
+import gui.model.MazeModel;
+import gui.panel.WindowPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.*;
 
 @SuppressWarnings("deprecation")
-public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER TOUT LE PACKAGE GUI EN SOUS PACKAGES.
+public class MainWindow extends JFrame implements Observer {
 
 	private final MenuBar menuBar;
 	private final WindowPanel windowPanel;

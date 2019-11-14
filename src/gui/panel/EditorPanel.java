@@ -1,4 +1,4 @@
-package gui;
+package gui.panel;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
+import gui.MainWindow;
 import maze.*;
 
 public class EditorPanel extends JPanel {

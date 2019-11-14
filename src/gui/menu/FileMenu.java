@@ -1,6 +1,8 @@
-package gui;
+package gui.menu;
 
 import javax.swing.*;
+
+import gui.MainWindow;
 
 public final class FileMenu extends JMenu {
 	

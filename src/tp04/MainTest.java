@@ -11,7 +11,6 @@ import dijkstra.Dijkstra;
 import maze.MBox;
 import maze.Maze;
 import gui.*;
-import model.*;
 
 public class MainTest {
 

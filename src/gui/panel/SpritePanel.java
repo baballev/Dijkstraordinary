@@ -1,6 +1,9 @@
-package gui;
+package gui.panel;
 
 import javax.swing.*;
+
+import gui.MainWindow;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
