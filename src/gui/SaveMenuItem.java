@@ -21,25 +21,33 @@ public final class SaveMenuItem extends JMenuItem implements ActionListener {
 	}
 	
 	public final void actionPerformed(ActionEvent e) {
+		if (mainWindow.getMazeModel().getMaze() == null) {
+			JOptionPane.showMessageDialog(new JFrame(),
+					"Erreur: Aucun labyrinthe n'a été chargé et ne peut donc être sauvegardé!", "Erreur",
+					JOptionPane.ERROR_MESSAGE);
+		} else {
 			try {
-				if (!mainWindow.getMazeModel().getMaze().isLegit()) throw new InvalidMazeException("Erreur: Labyrinthe icorrect.");
+				if (!mainWindow.getMazeModel().getMaze().isLegit())
+					throw new InvalidMazeException("Erreur: Labyrinthe icorrect.");
 				JFileChooser saveChooser = new JFileChooser("data/");
 				saveChooser.setDialogTitle("Sélectionner le fichier où sauvegarder le labyrinthe");
-				if(saveChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+				if (saveChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 					FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichiers texte", "txt");
 					saveChooser.addChoosableFileFilter(filter);
-					this.mainWindow.getMazeModel().getMaze().saveFromTextFile(saveChooser.getSelectedFile().getAbsolutePath());
+					this.mainWindow.getMazeModel().getMaze()
+							.saveFromTextFile(saveChooser.getSelectedFile().getAbsolutePath());
 					this.mainWindow.getMazeModel().setModified(false);
 				}
 			} catch (InvalidMazeException ime) {
 				ime.printStackTrace();
-				JOptionPane.showMessageDialog(new JFrame(), ime.getErrorMessage(), "Erreur",
-						JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(new JFrame(), ime.getErrorMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
 			} catch (Exception ex) {
 				ex.printStackTrace();
-				JOptionPane.showMessageDialog(new JFrame(), "Erreur: Une erreur s'est produite lors de l'écriture du fichier. Vérifiez les droits d'accès de l'applicaiton.", "Erreur",
-						JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(new JFrame(),
+						"Erreur: Une erreur s'est produite lors de l'écriture du fichier. Vérifiez les droits d'accès de l'applicaiton.",
+						"Erreur", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-	
+	}
+
 }

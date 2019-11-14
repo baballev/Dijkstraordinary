@@ -8,6 +8,7 @@ import model.*;
 import tp04.InvalidMazeException;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -21,7 +22,14 @@ public final class WindowPanel extends JPanel{
 		super();
 		
 		this.mainWindow = mainWindow;
-		
+		this.mainWindow.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+		        if (checkBeforeContinue()){
+		            System.exit(0);
+		        }
+			}
+		});
 		this.setLayout(new BorderLayout());
 		
 		this.add(mazePanel = new MazePanel(mainWindow), BorderLayout.WEST);

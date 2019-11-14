@@ -29,8 +29,7 @@ public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER 
 		windowPanel = new WindowPanel(this);
 		this.setContentPane(windowPanel);
 		this.setBackground(Color.WHITE);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // Allow the app to make sure the user has saves what he wants to save before closing.
 		this.pack();
 		this.setVisible(true);
 	}
