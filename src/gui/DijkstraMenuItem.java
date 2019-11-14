@@ -23,7 +23,7 @@ public class DijkstraMenuItem extends JMenuItem implements ActionListener{
 			JOptionPane.showMessageDialog(new JFrame(), "Erreur: Aucun labyrinthe n'a été chargé et ne peut donc être résolu!", "Erreur", JOptionPane.ERROR_MESSAGE);
 		}
 		else {
-			// TODO REPRENDRE ICIIIIII
+			
 		}
 		
 	}
