@@ -15,7 +15,7 @@ public class MazePanel extends JPanel {
 		this.mainWindow = mainWindow;
 		this.sprites = new ArrayList<SpritePanel>();
 		this.setBackground(Color.WHITE);
-		this.setPreferredSize(new Dimension(640, 640));
+		this.setPreferredSize(new Dimension(400, 400));
 	} 
 	
 	public void notifyForUpdate(Object parameter) {

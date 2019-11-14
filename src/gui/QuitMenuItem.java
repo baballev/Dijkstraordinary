@@ -17,6 +17,9 @@ public final class QuitMenuItem extends JMenuItem implements ActionListener {
 	}
 	
 	public final void actionPerformed(ActionEvent e) {
-		mainWindow.dispatchEvent(new WindowEvent(mainWindow, WindowEvent.WINDOW_CLOSING));
+		boolean canContinue = this.mainWindow.getWindowPanel().checkBeforeContinue();
+		if (canContinue) {
+			mainWindow.dispatchEvent(new WindowEvent(mainWindow, WindowEvent.WINDOW_CLOSING));
+		}
 	}
 }

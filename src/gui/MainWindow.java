@@ -46,6 +46,10 @@ public class MainWindow extends JFrame implements Observer {	// TODO: ORGANISER 
 	public EditorModel getEditorModel() {
 		return this.editorModel;
 	}
+	
+	public WindowPanel getWindowPanel() {
+		return this.windowPanel;
+	}
 
 	public void setEditorModel(EditorModel editorModel) {
 		this.editorModel = editorModel;

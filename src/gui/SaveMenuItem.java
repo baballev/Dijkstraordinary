@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import maze.Maze;
 import tp04.InvalidMazeException;
@@ -25,6 +26,8 @@ public final class SaveMenuItem extends JMenuItem implements ActionListener {
 				JFileChooser saveChooser = new JFileChooser("data/");
 				saveChooser.setDialogTitle("Sélectionner le fichier où sauvegarder le labyrinthe");
 				if(saveChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+					FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichiers texte", "txt");
+					saveChooser.addChoosableFileFilter(filter);
 					this.mainWindow.getMazeModel().getMaze().saveFromTextFile(saveChooser.getSelectedFile().getAbsolutePath());
 					this.mainWindow.getMazeModel().setModified(false);
 				}
