@@ -27,12 +27,17 @@ public final class MazeModel extends Observable {
 	
 	public void setMaze(Maze maze) {
 		this.maze = maze;
+		this.setModified(false);
 		this.setChanged();
 		this.notifyObservers(maze);
 	}
 	
 	public boolean isModified() {
 		return this.modified;
+	}
+	
+	public void setModified(boolean b) {
+		this.modified = b;
 	}
 	
 	public void changeMBox(int x, int y) {

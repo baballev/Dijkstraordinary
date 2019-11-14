@@ -23,9 +23,10 @@ public final class SaveMenuItem extends JMenuItem implements ActionListener {
 			try {
 				if (!mainWindow.getMazeModel().getMaze().isLegit()) throw new InvalidMazeException("Erreur: Labyrinthe icorrect.");
 				JFileChooser saveChooser = new JFileChooser("data/");
-				saveChooser.setDialogTitle("Sélectionner le fichier du labyrinthe");
+				saveChooser.setDialogTitle("Sélectionner le fichier où sauvegarder le labyrinthe");
 				if(saveChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 					this.mainWindow.getMazeModel().getMaze().saveFromTextFile(saveChooser.getSelectedFile().getAbsolutePath());
+					this.mainWindow.getMazeModel().setModified(false);
 				}
 			} catch (InvalidMazeException ime) {
 				ime.printStackTrace();

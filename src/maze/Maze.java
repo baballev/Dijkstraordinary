@@ -184,7 +184,7 @@ public class Maze implements GraphInterface
 				for (int k = 0; k < width; k++) {
 					char c = line.charAt(k);
 					MBox newBox;
-					switch (c) {  // TODO: How to avoid the switch statement here. I can't find a way with the imposed data structure.
+					switch (c) { 
 					case 'A':
 						newBox = new ABox(this, k, i);
 						ABoxCount++;

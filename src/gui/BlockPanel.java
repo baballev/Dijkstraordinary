@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 import maze.MBox;
 
-public class BlockPanel extends JPanel implements MouseListener{ // TODO: Transform each BlockPanel in buttons
+public class BlockPanel extends JPanel implements MouseListener{ 
 	
 	private final MainWindow mainWindow;
 	private final SpritePanel spritePanel;
