@@ -36,7 +36,7 @@ public class Maze implements GraphInterface
 		ArrayList<VertexInterface> verticesList = new ArrayList<VertexInterface>();
 		for (MBox[] X : labyrinthe) {
 			for (MBox x : X) {
-				if (x.getLabel().compareTo("W") != 0) {
+				if (x.getLabel() != "W") {
 					verticesList.add(x);
 				}
 			}
@@ -52,7 +52,7 @@ public class Maze implements GraphInterface
 
 		for (int i = -1; i <= 1; i++) {
 			for (int j = -1; j <= 1; j++) {
-				if (Math.abs(i - j) == 1 && y+i >= 0 && y+i <= 9 && x+j >= 0 && x+j <= 9) {
+				if (Math.abs(i - j) == 1 && y+i >= 0 && y+i < this.height && x+j >= 0 && x+j < this.width) {
 					MBox v = labyrinthe[y + i][x + j];
 					if (v.getLabel().compareTo("W") != 0) {
 						successorsList.add(v);
