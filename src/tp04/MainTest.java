@@ -13,7 +13,7 @@ import gui.*;
 public class MainTest {
 
 	public static void main(String[] args) {
-		String fileName = "data/labytest.txt";
+		/* String fileName = "data/labytest.txt";
 		Maze labyrinthe = new Maze();
 		labyrinthe.setSizeFromTextFile(fileName);
 		labyrinthe.initFromTextFile(fileName);
@@ -23,11 +23,6 @@ public class MainTest {
 		
 		Previous previous = (Previous) Dijkstra.dijkstra(labyrinthe, start);
 		ArrayList<VertexInterface> path = previous.getShortestPathTo(end);
-		
-		// PROBLEME: Le sommet 'end' n'est pas dans la hashtable de previous.
-		// D'où un path = null de longueur 0.
-		// Déduction: Il y a un problème durant l'éxecution de Dijkstra.dijkstra
-		// La question c'est de savoir où.
 		
 		int n = path.size();
 		if (path.get(n-1) == start) {
@@ -41,7 +36,7 @@ public class MainTest {
 		else {
 			System.out.println("Il n'existe pas de chemin de longueur de D vers A." );
 		}
-		labyrinthe.saveFromTextFile("data/labyrinthe2.txt");
+		labyrinthe.saveFromTextFile("data/labyrinthe2.txt");*/
 		
 		new MainWindow();  	// Init window.
 	}

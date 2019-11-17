@@ -18,7 +18,7 @@ public class SpritePanel extends JPanel {
 	public SpritePanel(MainWindow mainWindow, MBox box) {
 		super();
 		this.mainWindow = mainWindow;
-		this.sprite = new ImageIcon("data/" + box.getLabel() + "box.jpg").getImage();
+		this.sprite = new ImageIcon("data/" + box.getLabel() + "Box.jpg").getImage();
 		this.setBackground(Color.WHITE);
 		this.setPreferredSize(new Dimension(64, 64));
 		
