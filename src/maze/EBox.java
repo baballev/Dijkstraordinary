@@ -8,7 +8,7 @@ public class EBox extends MBox {
 		super(labyrinthe0, x0, y0);
 		label = "E";
 	}
-
+	
 	@Override
 	public String getLabel() {
 		return label;

@@ -30,7 +30,7 @@ public class Maze implements GraphInterface
 		this.height = 1;
 		this.width = 1;
 		this.labyrinthe = new MBox[this.height][this.width];
-	}
+	}	
 	
 	public ArrayList<VertexInterface> getAllVertices() {
 		ArrayList<VertexInterface> verticesList = new ArrayList<VertexInterface>();
@@ -198,6 +198,9 @@ public class Maze implements GraphInterface
 					case 'D':
 						newBox = new DBox(this, k, i);
 						DBoxCount++;
+						break;
+					case 'S':
+						newBox = new SBox(this, k, i);
 						break;
 					default:
 						throw new MazeReadingException(fileName, i,
